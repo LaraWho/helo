@@ -16,9 +16,21 @@ class Dashboard extends Component {
     //reset search
 
     render() {
+        let postsToDisplay =  this.state.posts.map((post, index) => (
+                <div key={index + post}>
+                <p>{post.title}</p>
+                <p>Author: {post.user_name}</p>
+                <p>{post.user_pic}</p>
+            </div>
+            ))
+
         return(
             <div>
-                Dashboard!
+                <input type="text"
+                placeholder=" Type here..."/>
+                <button>Search</button>
+                <button>Reset</button>
+                { postsToDisplay }
             </div>
         )
     }

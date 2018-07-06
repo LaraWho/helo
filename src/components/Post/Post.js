@@ -8,8 +8,8 @@ class Post extends Component {
             title: '',
             img: '',
             content: '',
-            author: '',
-            author_picture: ''
+            user_name: '',
+            user_pic: ''
         }
     }
 

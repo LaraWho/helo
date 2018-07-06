@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { updateUser } from '../../ducks/reducer';
+ 
 class Auth extends Component {
     constructor(){
         super()
@@ -26,6 +29,9 @@ class Auth extends Component {
     // }
 
     //register
+    register = (user) => {
+        axios.post('/api/auth/register')
+    }
 
     render() {
         return(
@@ -37,4 +43,6 @@ class Auth extends Component {
     }
 }
 
-export default Auth;
+// export default Auth;
+
+export default connect(null, {updateUser}) (Auth);

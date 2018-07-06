@@ -6,12 +6,18 @@ require('dotenv').config();
 
 const { 
     SERVER_PORT,
-    CONNECTION_STRING 
+    SESSION_SECRET
 } = process.env; 
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 const app = express();
+
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 app.put('/api/auth/register', cntrl.add_user);
 
