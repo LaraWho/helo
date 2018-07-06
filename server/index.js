@@ -13,6 +13,8 @@ const {
 
 const app = express();
 
+app.put('/api/auth/register', cntrl.add_user);
+
 app.listen(SERVER_PORT, ( ) => {
     console.log(`Listening on port: ${SERVER_PORT}`)
 });
