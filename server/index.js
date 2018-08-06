@@ -19,6 +19,10 @@ app.use(session({
     saveUninitialized: false
 }))
 
+massive(CONNECTION_STRING).then(db => {
+    app.set('db', db);
+})
+
 app.put('/api/auth/register', cntrl.add_user);
 
 app.listen(SERVER_PORT, ( ) => {
